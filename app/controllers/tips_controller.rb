@@ -66,7 +66,7 @@ class TipsController < ApplicationController
     render json:@latest_tips
   end
 
-  def get_tip_of_the_day
+  def get_tips_of_the_day
     start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
     end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
 
@@ -75,7 +75,7 @@ class TipsController < ApplicationController
     render json:@tip_of_the_day
   end
 
-  def get_tip_of_the_week
+  def get_tips_of_the_week
     start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
     end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
 
