@@ -1,4 +1,5 @@
 class Tip < ActiveRecord::Base
+  belongs_to :user
 
   def self.get_latest_tips(options)
     return Tip.order(:created_at).limit(options['amount'])

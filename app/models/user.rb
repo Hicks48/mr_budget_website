@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tips
   has_secure_password
 
   def self.get_public_info(id)
