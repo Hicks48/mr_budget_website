@@ -1,0 +1,16 @@
+{
+  "name": "Mr. Budget",
+  "version": "0.0.0",
+  "authors": [
+    "Kaltsoon <Kalle.ilves@helsinki.fi>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}
