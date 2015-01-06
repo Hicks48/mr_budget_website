@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   resources :sales
 
+  # Tips
+  get '/tips/tip_of_the_day', to: 'tips#get_tip_of_the_day'
   resources :tips
 
   # Main page
   get '/', to: 'tips#index'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

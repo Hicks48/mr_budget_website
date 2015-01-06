@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+tips = Tip.create([{title:'Best Chicken Burger', description:'Chicken Elmaco junior', likes:2},
+  {title:'Second Best Burger', description:'Nothing but the second best. Kerrospurilainen', likes:1}])

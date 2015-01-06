@@ -61,6 +61,14 @@ class TipsController < ApplicationController
     end
   end
 
+  def get_tip_of_the_day
+    start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
+    end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
+
+    @tip_of_the_day = Tip.get_best_tips({'start_datetime' => start_time, 'end_datetime' => end_time, 'amount' => 1})
+    render json:@tip_of_the_day
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tip
