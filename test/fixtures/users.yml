@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyText
+  karma: 9.99
+  avatar: MyText
+
+two:
+  username: MyText
+  karma: 9.99
+  avatar: MyText

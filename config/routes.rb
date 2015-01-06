@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :sales
+
   resources :tips
 
+  # Main page
+  get '/', to: 'tips#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
