@@ -28,8 +28,7 @@ class TipsController < ApplicationController
 
     respond_to do |format|
       if @tip.save
-        format.html { redirect_to @tip, notice: 'Tip was successfully created.' }
-        format.json { render :show, status: :created, location: @tip }
+        render json:{'id' => @tip.id}
       else
         format.html { render :new }
         format.json { render json: @tip.errors, status: :unprocessable_entity }
@@ -67,8 +66,8 @@ class TipsController < ApplicationController
   end
 
   def get_tips_of_the_day
-    start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
-    end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
+    start_time = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, 0, 0, 0)
+    end_time = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, 23, 59, 59)
 
     @tip_of_the_day = Tip.get_best_tips({'start_datetime' => start_time,
        'end_datetime' => end_time, 'amount' => params[:amount].to_i})
@@ -76,8 +75,11 @@ class TipsController < ApplicationController
   end
 
   def get_tips_of_the_week
-    start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
-    end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
+    start_time = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day , 0, 0, 0)
+    start_time = start_time - (DateTime.now.cwday - 1)
+
+    end_time = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, 23, 59, 59)
+    end_time = end_time + (7 - DateTime.now.cwday)
 
     @tip_of_the_week = Tip.get_best_tips({'start_datetime' => start_time,
       'end_datetime' => end_time, 'amount' => params[:amount].to_i})
