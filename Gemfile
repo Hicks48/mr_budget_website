@@ -11,8 +11,11 @@ end
 
 group :production do
    gem 'pg'
-   gem 'rails_12factor' 
+   gem 'rails_12factor'
 end
+# Use bcrypt to has passwords
+gem 'bcrypt', '3.1.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -45,4 +48,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
