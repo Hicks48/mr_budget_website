@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def self.get_public_info(id)
+    puts 'ijjj'
+    puts id
     user = User.find_by_id(id)
 
     if(user.nil?)

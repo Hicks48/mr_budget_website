@@ -1,4 +1,6 @@
 class TipsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   before_action :set_tip, only: [:show, :edit, :update, :destroy]
 
   # GET /tips

@@ -1,5 +1,7 @@
-MrBudgetApp.controller('CreateTipController', ['$scope', 'Tip', '$location',
-  function($scope, Tip, $location){
+MrBudgetApp.controller('CreateTipController', ['$scope', 'Tip', '$location', 'current_user',
+  function($scope, Tip, $location, current_user){
+    console.log(current_user.data)
+
     $scope.tip = {};
 
     $scope.add_tip = function(){

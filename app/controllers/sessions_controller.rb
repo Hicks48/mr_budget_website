@@ -6,13 +6,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
 
-    if(user && user.authenticate(params[:password])
+    if(user && user.authenticate(params[:password]))
       session[:user_id] = user.id
-      render json:{"error" => false}
-
-    # Login failed
+       
+      render json: { "error" => false }
     else
-      render json:{"error" => true}
+      render json: { "error" => true}
     end
   end
 

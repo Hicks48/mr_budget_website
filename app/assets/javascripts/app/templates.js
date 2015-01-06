@@ -1,4 +1,4 @@
-angular.module('templates', ['../app/assets/javascripts/app/views/home.html', '../app/assets/javascripts/app/views/tips/all.html', '../app/assets/javascripts/app/views/tips/new.html', '../app/assets/javascripts/app/views/users/login.html']);
+angular.module('templates', ['../app/assets/javascripts/app/views/home.html', '../app/assets/javascripts/app/views/tips/all.html', '../app/assets/javascripts/app/views/tips/new.html', '../app/assets/javascripts/app/views/users/login.html', '../app/assets/javascripts/app/views/users/register.html']);
 
 angular.module("../app/assets/javascripts/app/views/home.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../app/assets/javascripts/app/views/home.html",
@@ -124,7 +124,7 @@ angular.module("../app/assets/javascripts/app/views/users/login.html", []).run([
     "  <h1>Log in</h1>\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"alert\" ng-class=\"{ 'alert-success': alert.type == 'success' }\" ng-show=\"alert\">\n" +
+    "<div class=\"alert\" ng-class=\"{ 'alert-danger': alert.type == 'danger' }\" ng-show=\"alert\">\n" +
     "  {{alert.content}}\n" +
     "</div>\n" +
     "\n" +
@@ -136,11 +136,49 @@ angular.module("../app/assets/javascripts/app/views/users/login.html", []).run([
     "\n" +
     "  <div class=\"form-group\">\n" +
     "    <label>Password</label>\n" +
-    "    <input type=\"text\" class=\"form-control\" ng-model=\"user.password\">\n" +
+    "    <input type=\"password\" class=\"form-control\" ng-model=\"user.password\">\n" +
     "  </div>\n" +
     "\n" +
     "  <div class=\"form-group\">\n" +
     "    <button class=\"btn btn-primary\" type=\"submit\">Log in</button>\n" +
+    "  </div>\n" +
+    "</form>\n" +
+    "");
+}]);
+
+angular.module("../app/assets/javascripts/app/views/users/register.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../app/assets/javascripts/app/views/users/register.html",
+    "<div class=\"page-header\">\n" +
+    "  <h1>Register</h1>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"alert\" ng-class=\"{ 'alert-danger': alert.type == 'danger' }\" ng-show=\"alert\">\n" +
+    "  {{alert.content}}\n" +
+    "</div>\n" +
+    "\n" +
+    "<form ng-submit=\"register()\">\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <label>Username</label>\n" +
+    "    <input type=\"text\" class=\"form-control\" ng-model=\"user.username\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <label>Email</label>\n" +
+    "    <input type=\"text\" class=\"form-control\" ng-model=\"user.email\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <label>Password</label>\n" +
+    "    <input type=\"password\" class=\"form-control\" ng-model=\"user.password\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <label>Password again</label>\n" +
+    "    <input type=\"password\" class=\"form-control\" ng-model=\"user.password_confirmation\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <button class=\"btn btn-primary\" type=\"submit\">Register</button>\n" +
     "  </div>\n" +
     "</form>\n" +
     "");

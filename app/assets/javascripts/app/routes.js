@@ -6,7 +6,12 @@ MrBudgetApp.config(['$routeProvider',
     }).
     when('/tip/new', {
       controller: 'CreateTipController',
-      templateUrl: '../app/assets/javascripts/app/views/tips/new.html'
+      templateUrl: '../app/assets/javascripts/app/views/tips/new.html',
+      resolve: {
+        current_user: function(User){
+          return User.current();
+        }
+      }
     }).
     when('/tip', {
       controller: 'TipsListController',
@@ -15,6 +20,10 @@ MrBudgetApp.config(['$routeProvider',
     when('/log-in', {
       controller: 'LoginController',
       templateUrl: '../app/assets/javascripts/app/views/users/login.html'
+    }).
+    when('/register', {
+      controller: 'RegisterController',
+      templateUrl: '../app/assets/javascripts/app/views/users/register.html'
     }).
     otherwise({
       redirectTo: '/'

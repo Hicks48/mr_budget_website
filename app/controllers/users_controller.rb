@@ -56,6 +56,8 @@ class UsersController < ApplicationController
   end
 
   def get_current_user_info
+    puts 'ok'
+    puts session[:user_id]
     render json:User.get_public_info(session[:user_id])
   end
 
