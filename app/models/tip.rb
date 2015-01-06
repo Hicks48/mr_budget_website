@@ -1,5 +1,9 @@
 class Tip < ActiveRecord::Base
 
+  def self.get_latest_tips(options)
+    return Tip.order(:created_at).limit(options['amount'])
+  end
+
   def self.get_best_tips(options)
     tips_from_correct_time = Tip.where("created_at >= ? AND created_at <= ?",
      options['start_datetime'], options['end_datetime'])
@@ -14,7 +18,6 @@ class Tip < ActiveRecord::Base
 
       # If not amount tips add tip to best
       else
-        puts "Here"
         best_tips.push(tip)
       end
     end

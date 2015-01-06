@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :sales
 
   # Tips
-  get '/tips/tip_of_the_day', to: 'tips#get_tip_of_the_day'
+  get '/tips/tip_of_the_day/:amount', to: 'tips#get_tip_of_the_day'
+  get '/tips/latest_tips/:amount', to: 'tips#get_latest_tips'
   resources :tips
 
   # Main page

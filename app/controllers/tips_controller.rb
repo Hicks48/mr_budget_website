@@ -61,12 +61,27 @@ class TipsController < ApplicationController
     end
   end
 
+  def get_latest_tips
+    @latest_tips = Tip.get_latest_tips({'amount' => params[:amount].to_i})
+    render json:@latest_tips
+  end
+
   def get_tip_of_the_day
     start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
     end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
 
-    @tip_of_the_day = Tip.get_best_tips({'start_datetime' => start_time, 'end_datetime' => end_time, 'amount' => 1})
+    @tip_of_the_day = Tip.get_best_tips({'start_datetime' => start_time,
+       'end_datetime' => end_time, 'amount' => params[:amount].to_i})
     render json:@tip_of_the_day
+  end
+
+  def get_tip_of_the_week
+    start_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
+    end_time = DateTime.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
+
+    @tip_of_the_week = Tip.get_best_tips({'start_datetime' => start_time,
+      'end_datetime' => end_time, 'amount' => params[:amount].to_i})
+      render json:@tip_of_the_week
   end
 
   private
