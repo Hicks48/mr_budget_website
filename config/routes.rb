@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # Login and logout
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
+
+  # Current user info
+  get '/users/current_user_info', to: 'users#get_current_user'
+
   resources :users
 
   resources :sales
