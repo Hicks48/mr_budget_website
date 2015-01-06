@@ -1,12 +1,14 @@
-MrBudgetApp.controller('CreateTipController', ['$scope', 'Tip',
-  function($scope, Tip){
+MrBudgetApp.controller('CreateTipController', ['$scope', 'Tip', '$location',
+  function($scope, Tip, $location){
     $scope.tip = {};
 
     $scope.add_tip = function(){
-      console.log('clicked')
       Tip.create($scope.tip).
         success(function(){
-          console.log('jees!')
+          $location.path('/tip')
+        }).
+        error(function(){
+
         });
     }
   }]);

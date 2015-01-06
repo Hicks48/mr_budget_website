@@ -2,6 +2,9 @@
   <h1>Add a tip</h1>
 </div>
 
+<div class="alert" ng-class="{ 'alert-success': alert.type == 'success' }" ng-show="alert">
+</div>
+
 <form ng-submit="add_tip()">
   <div class="form-group">
     <label>Title</label>
