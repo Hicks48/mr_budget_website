@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['app/assets/javascripts/app/views/*.html', 'app/assets/javascripts/app/views/*/*.html'],
-        tasks: ['jshint'],
+        tasks: ['html2js'],
         options: {
           interrupt: true,
         }

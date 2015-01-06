@@ -8,6 +8,14 @@ MrBudgetApp.config(['$routeProvider',
       controller: 'CreateTipController',
       templateUrl: '../app/assets/javascripts/app/views/tips/new.html'
     }).
+    when('/tip', {
+      controller: 'TipsListController',
+      templateUrl: '../app/assets/javascripts/app/views/tips/all.html'
+    }).
+    when('/log-in', {
+      controller: 'LoginController',
+      templateUrl: '../app/assets/javascripts/app/views/users/login.html'
+    }).
     otherwise({
       redirectTo: '/'
     });

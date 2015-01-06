@@ -3,6 +3,7 @@
 </div>
 
 <div class="alert" ng-class="{ 'alert-success': alert.type == 'success' }" ng-show="alert">
+  {{alert.content}}
 </div>
 
 <form ng-submit="add_tip()">

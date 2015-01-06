@@ -1,7 +1,7 @@
-MrBudgetApp.controller('TipsOfTheDayController', ['$scope', 'Tip',
+MrBudgetApp.controller('TipOfTheDayController', ['$scope', 'Tip',
   function($scope, Tip){
-    Tip.daily_top().
-      success(function(tip){
-        $scope.tip = tip;
+    Tip.daily_top(1).
+      success(function(tips){
+        $scope.tip = tips[0];
       });
   }]);

@@ -28,6 +28,10 @@ class Tip < ActiveRecord::Base
   private
 
   def self.get_score(tip)
-    return tip.likes
+    if tip.likes.nil?
+      return 0
+    else
+      return tip.likes
+    end
   end
 end

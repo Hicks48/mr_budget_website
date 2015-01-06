@@ -1,1 +1,67 @@
-Lorem
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Latest tip from Mr. Budget</h3>
+      </div>
+      <div class="panel-body">
+        <blockquote>
+          <h3 style="margin-top: 0px">Lorem</h3>
+          Panel content
+          <footer><a href="#">Tomi</a></footer>
+        </blockquote>
+        <p class="text-muted">
+          Added at {{tip.created_at}}
+        </p>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-controller="TipOfTheDayController">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tip of the day</h3>
+      </div>
+      <div class="panel-body">
+        <blockquote>
+          <h3 style="margin-top: 0px">{{tip.title}}</h3>
+          {{tip.description}}
+          <footer><a href="#">Tomi</a></footer>
+        </blockquote>
+        <p class="text-muted">
+          Added at {{tip.created_at}}
+        </p>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-controller="TipsOfTheWeekController">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><h3 class="panel-title">Tips of the week</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="tip in tips">
+          <a ng-href="#/tip/{{tip.id}}">{{tip.title}}</a>
+          <p class="text-muted">
+            Added at {{tip.created_at}}
+          </p>
+        </li>
+      </ul>
+      <div class="panel-body">
+        <a class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span> Add a tip</a>
+        <a href="#/tip" class="btn btn-default btn-sm">More tips <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><h3 class="panel-title">Latest sales</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+      <div class="panel-body">
+        <a class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span> Add a sale</a>
+        <a class="btn btn-default btn-sm">More sales <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
