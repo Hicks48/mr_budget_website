@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
+
   # Login and logout
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
