@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   # Current user info
-  get '/users/current_user_info', to: 'users#get_current_user'
+  get '/users/current_user_info', to: 'users#get_current_user_info'
 
   resources :users
 
