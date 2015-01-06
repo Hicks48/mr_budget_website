@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # Login and logout
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
+
+  # Current user info
+  get '/users/current_user_info', to: 'users#get_current_user'
+
   resources :users
 
   resources :sales
@@ -7,7 +14,7 @@ Rails.application.routes.draw do
   get '/tips/tips_of_the_day/:amount', to: 'tips#get_tips_of_the_day'
   get '/tips/tips_of_the_week/:amount', to: 'tips#get_tips_of_the_week'
   get '/tips/latest_tips/:amount', to: 'tips#get_latest_tips'
-  
+
   resources :tips
 
   # Main page
