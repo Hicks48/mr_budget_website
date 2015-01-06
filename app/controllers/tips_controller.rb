@@ -24,6 +24,14 @@ class TipsController < ApplicationController
   # POST /tips
   # POST /tips.json
   def create
+    if(@current_user.nil?)
+      redirect_to '/login'
+
+    else
+      tip_params[:user] = @current_user
+
+    end
+
     @tip = Tip.new(tip_params)
 
     respond_to do |format|
@@ -39,6 +47,10 @@ class TipsController < ApplicationController
   # PATCH/PUT /tips/1
   # PATCH/PUT /tips/1.json
   def update
+    if(@current_user.nil? || @current_user != @tip.user)
+      redirect_to 'login'
+    end
+
     respond_to do |format|
       if @tip.update(tip_params)
         format.html { redirect_to @tip, notice: 'Tip was successfully updated.' }
@@ -53,6 +65,10 @@ class TipsController < ApplicationController
   # DELETE /tips/1
   # DELETE /tips/1.json
   def destroy
+    if(@current_user.nil? || @current_user != @tip.user)
+      redirect_to 'login'
+    end
+
     @tip.destroy
     respond_to do |format|
       format.html { redirect_to tips_url, notice: 'Tip was successfully destroyed.' }
